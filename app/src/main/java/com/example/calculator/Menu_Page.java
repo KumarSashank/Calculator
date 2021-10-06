@@ -35,27 +35,34 @@ public class Menu_Page extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.add_button:
                     Toast.makeText(getApplicationContext(), "Addition", Toast.LENGTH_SHORT).show();
-                    solution();
+                    solution("Addition","Sum","The sum is ",1 );
                     break;
 
                 case R.id.subtract_button:
                     Toast.makeText(getApplicationContext(), "Subtraction", Toast.LENGTH_SHORT).show();
+                    solution("Subtract","Diff","The difference is ",2 );
                     break;
 
                 case R.id.Multiply_button:
                     Toast.makeText(getApplicationContext(), "Multiplication", Toast.LENGTH_SHORT).show();
+                    solution("Multiply","Multiplication","The product is ",3 );
                     break;
 
                 case R.id.Division_button:
                     Toast.makeText(getApplicationContext(), "Division", Toast.LENGTH_SHORT).show();
+                    solution("Division","Divide","The quotient is ",4 );
                     break;
 
             }
         }
     }
 
-    public void solution() {
+    public void solution(String heading,String button,String text,int i) {
         Intent sol = new Intent(this, solution.class);
+        sol.putExtra("Heading",heading);
+        sol.putExtra("Button",button);
+        sol.putExtra("Answer",text);
+        sol.putExtra("switch",i);
         startActivity(sol);
     }
 }
